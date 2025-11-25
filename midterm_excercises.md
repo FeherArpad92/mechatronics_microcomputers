@@ -1,8 +1,3 @@
-Íme az elkészített `.md` fájl angol nyelven, amely tartalmazza mind a 20 generált feladatot, a megfelelő struktúrában (PC szimuláció vs. Pico implementáció).
-
-A feladatok elején összefoglaltam a hardveres bekötést a PDF alapján, hogy ne kelljen minden feladatnál külön keresgélni.
-
-```markdown
 # Embedded Systems & MicroPython: Practice Exercises
 
 This document contains 20 practice exercises designed to prepare for the midterm exam.
@@ -238,4 +233,3 @@ This document contains 20 practice exercises designed to prepare for the midterm
     * User taps B0 to a beat.
     * Pico measures time between taps.
     * If the rhythm is consistent (intervals are similar), blink Green (Y0). If erratic, blink Red (Y3).
-```
