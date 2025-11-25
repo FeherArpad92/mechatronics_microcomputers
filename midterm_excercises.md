@@ -24,8 +24,6 @@ This document contains 12 practice exercises designed to prepare for the midterm
 
 ---
 
-## Set 1: Timing, Logic & Data Structures
-
 ### 1. "Staircase Light Timer" (Retriggerable Timer)
 **Concept:** Implementing a non-blocking timer that can be reset while running. This simulates a hallway light switch.
 

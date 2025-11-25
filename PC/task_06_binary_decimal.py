@@ -1,21 +1,32 @@
 def binary_to_decimal():
-    bits = [1, 0, 1, 0] # Example: 1010
+    # Define a list representing 4 bits.
+    # Index 0 is the Most Significant Bit (MSB) -> Value 8
+    # Index 3 is the Least Significant Bit (LSB) -> Value 1
+    # Example: [1, 0, 1, 0] represents binary 1010
+    bits = [1, 0, 1, 0] 
+    
     print(f"Binary List: {bits}")
     
-    # Calculate integer
-    # bits[0] is MSB (Most Significant Bit) in this example context? 
-    # The prompt says: bits = [1, 0, 1, 0] -> 10. 
-    # So index 0 is 8s place (2^3), index 3 is 1s place (2^0).
-    
+    # METHOD 1: Manual Calculation
+    # We multiply each bit by its corresponding weight (power of 2)
+    # bits[0] * 2^3 = 8
+    # bits[1] * 2^2 = 4
+    # bits[2] * 2^1 = 2
+    # bits[3] * 2^0 = 1
     value = (bits[0] * 8) + (bits[1] * 4) + (bits[2] * 2) + (bits[3] * 1)
     
-    print(f"Decimal Value: {value}")
+    print(f"Decimal Value (Manual): {value}")
     
-    # Generic way
+    # METHOD 2: Algorithmic Loop (Generic)
+    # This works for any number of bits.
+    # We shift the accumulated value left (multiply by 2) and add the new bit.
     value_generic = 0
     for bit in bits:
+        # Shift current total to the left by 1 bit (equivalent to x * 2)
+        # OR operation adds the new bit to the LSB position (equivalent to + bit)
         value_generic = (value_generic << 1) | bit
-    print(f"Calculated Generic: {value_generic}")
+        
+    print(f"Decimal Value (Loop):   {value_generic}")
 
 if __name__ == "__main__":
     binary_to_decimal()

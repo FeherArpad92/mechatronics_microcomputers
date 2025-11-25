@@ -2,8 +2,9 @@ from machine import Pin
 import time
 import random
 
-# Hardware Setup
-button = Pin(10, Pin.IN, Pin.PULL_DOWN) # B0
+# --- HARDWARE CONFIGURATION ---
+button = Pin(10, Pin.IN, Pin.PULL_DOWN) # B0: Roll Button
+# List of LEDs for the die faces/values (0-3)
 leds = [
     Pin(16, Pin.OUT), # Y0
     Pin(17, Pin.OUT), # Y1
@@ -13,27 +14,28 @@ leds = [
 
 while True:
     if button.value() == 1:
-        # Animation: Cycle through LEDs
+        # --- ANIMATION PHASE ---
         print("Rolling...")
-        for _ in range(3): # 3 full cycles
+        # Cycle through LEDs rapidly to simulate rolling
+        for _ in range(3): # Do this 3 times
             for led in leds:
                 led.value(1)
                 time.sleep(0.05)
                 led.value(0)
         
-        # Random Result
+        # --- RESULT PHASE ---
+        # Generate a random number between 0 and 3
         result = random.randint(0, 3)
         print(f"Result: {result}")
         
-        # Turn on the resulting LED
+        # Turn on the corresponding LED
         leds[result].value(1)
         
-        # Wait for release
+        # WAIT FOR RELEASE
         while button.value() == 1:
             time.sleep(0.01)
             
-        # Keep lit for a moment or until next press?
-        # Let's keep it lit until next press (or just leave it)
-        # To restart, we just loop.
+        # Note: The LED stays ON until the next roll begins.
+        # This allows the user to see the result.
         
-    time.sleep(0.05)
+    time.sleep(0.05) # Loop delay
